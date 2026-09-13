@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade With Munaf — Free Telegram Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E1B14;
+    --ink-2:#132419;
+    --paper:#F4F1E7;
+    --gold:#C9A24B;
+    --gold-soft:#8E7638;
+    --green:#4C9A6A;
+    --red-wick:#B5573F;
+    --line: rgba(244,241,231,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  a{ color:inherit; }
+
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Ticker ---------- */
+  .ticker{
+    border-bottom:1px solid var(--line);
+    background:var(--ink-2);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:10px 0;
+  }
+  .ticker-track{
+    display:inline-block;
+    padding-left:100%;
+    animation: scroll-left 28s linear infinite;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gold);
+  }
+  .ticker-track span{ margin-right:48px; }
+  .up{ color:var(--green); }
+  .down{ color:var(--red-wick); }
+  @keyframes scroll-left{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-100%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{ animation:none; padding-left:24px; }
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    padding:64px 0 48px;
+    text-align:center;
+  }
+
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gold);
+    border:1px solid var(--gold-soft);
+    padding:6px 14px;
+    border-radius:100px;
+    margin-bottom:28px;
+  }
+  .badge::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--green);
+    display:inline-block;
+  }
+
+  .avatar{
+    width:88px; height:88px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--gold-soft);
+    margin-bottom:22px;
+  }
+
+  h1.title{
+    font-size:clamp(34px, 6vw, 52px);
+    font-weight:700;
+    color:var(--paper);
+  }
+  h1.title em{
+    font-style:normal;
+    color:var(--gold);
+  }
+
+  .subtitle{
+    font-size:17px;
+    color:rgba(244,241,231,0.72);
+    max-width:440px;
+    margin:16px auto 0;
+  }
+
+  .cta{
+    display:inline-block;
+    margin-top:34px;
+    background:var(--gold);
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:600;
+    font-size:16px;
+    padding:16px 34px;
+    border-radius:10px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .cta:hover{ background:#DBB65E; transform:translateY(-1px); }
+  .cta-note{
+    display:block;
+    margin-top:12px;
+    font-size:13px;
+    color:rgba(244,241,231,0.5);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ---------- Stats row ---------- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat{
+    text-align:center;
+    padding:28px 12px;
+    border-right:1px solid var(--line);
+  }
+  .stat:last-child{ border-right:none; }
+  .stat .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:22px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .stat .label{
+    font-size:13px;
+    color:rgba(244,241,231,0.6);
+    margin-top:4px;
+  }
+
+  /* ---------- What you get ---------- */
+  section.offer{
+    padding:56px 0;
+  }
+  section.offer h2{
+    font-size:26px;
+    margin-bottom:28px;
+  }
+  .list{
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .list li{
+    display:flex;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .list li:last-child{ border-bottom:none; }
+  .list .mark{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--green);
+    flex-shrink:0;
+  }
+  .list strong{ color:var(--paper); }
+  .list span.desc{ color:rgba(244,241,231,0.65); font-size:15px; }
+
+  /* ---------- Disclaimer ---------- */
+  .disclaimer{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:20px 22px;
+    font-size:13.5px;
+    color:rgba(244,241,231,0.65);
+    margin:8px 0 56px;
+  }
+  .disclaimer strong{ color:var(--paper); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:40px 0 60px;
+    font-size:14px;
+    color:rgba(244,241,231,0.55);
+  }
+  .footer-links{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+  }
+  .footer-links a{
+    text-decoration:none;
+    color:rgba(244,241,231,0.75);
+  }
+  .footer-links a:hover{ color:var(--gold); }
+
+  details{
+    border-top:1px solid var(--line);
+    padding:16px 0;
+  }
+  details summary{
+    cursor:pointer;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--gold);
+    list-style:none;
+  }
+  details summary::-webkit-details-marker{ display:none; }
+  details p{ margin:14px 0 0; color:rgba(244,241,231,0.65); font-size:14px; }
+
+  .copyright{
+    margin-top:24px;
+    font-size:12.5px;
+    color:rgba(244,241,231,0.4);
+  }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="mono">NIFTY 50 <span class="up">▲ 0.62%</span></span>
+    <span class="mono">SENSEX <span class="up">▲ 0.48%</span></span>
+    <span class="mono">BANKNIFTY <span class="down">▼ 0.21%</span></span>
+    <span class="mono">GOLD <span class="up">▲ 0.15%</span></span>
+    <span class="mono">USD/INR <span class="down">▼ 0.08%</span></span>
+    <span class="mono">NIFTY 50 <span class="up">▲ 0.62%</span></span>
+    <span class="mono">SENSEX <span class="up">▲ 0.48%</span></span>
+    <span class="mono">BANKNIFTY <span class="down">▼ 0.21%</span></span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <img class="avatar" src="https://munaafcomm944.vercel.app/Munaaf.jpeg" alt="Trade With Munaf">
+    <div class="badge">Free &amp; Educational Community</div>
+    <h1 class="title">Trade With <em>Munaf</em></h1>
+    <p class="subtitle">Stock market aur financial trading seekhiye — roz ke updates, simple explanations, aur ek active community ke saath.</p>
+
+    <a class="cta" href="https://t.me/+znQMGRrI7yUxMzVl" target="_blank" rel="noopener">Join Free Telegram Community</a>
+    <span class="cta-note">Instant access · No cost · No sign-up</span>
+  </header>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="num">Daily</div>
+      <div class="label">Market Updates</div>
+    </div>
+    <div class="stat">
+      <div class="num">Free</div>
+      <div class="label">Access Always</div>
+    </div>
+    <div class="stat">
+      <div class="num">Active</div>
+      <div class="label">Community Support</div>
+    </div>
+  </div>
+
+  <section class="offer">
+    <h2>Aapko kya milega</h2>
+    <ul class="list">
+      <li>
+        <span class="mark">→</span>
+        <div><strong>Roz ke Market Updates</strong><br><span class="desc">Har din key movements aur insights, seedha channel par.</span></div>
+      </li>
+      <li>
+        <span class="mark">→</span>
+        <div><strong>Educational Content</strong><br><span class="desc">Koi hidden fees nahi — sirf seekhne ke liye content.</span></div>
+      </li>
+      <li>
+        <span class="mark">→</span>
+        <div><strong>Beginners ke liye Easy Explanations</strong><br><span class="desc">Basics se shuru karke, step by step samjhaya jata hai.</span></div>
+      </li>
+      <li>
+        <span class="mark">→</span>
+        <div><strong>Active Community Support</strong><br><span class="desc">Sawal poochiye, discuss kariye, saath mein seekhiye.</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> Yeh group sirf educational purposes ke liye hai. Yeh koi financial advice nahi hai. Stock market investments mein risk hota hai — koi bhi investment decision lene se pehle apne certified financial advisor se salah lein. Trade With Munaf kisi fixed return ya profit ki guarantee nahi deta.
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact Us</a>
+      <a href="https://t.me/+znQMGRrI7yUxMzVl" target="_blank" rel="noopener">Join Telegram</a>
+    </div>
+
+    <details id="about">
+      <summary>About Us</summary>
+      <p>Trade With Munaf financial literacy aur stock market education provide karta hai. Hamara mission hai beginners aur experienced traders dono ko accurate market updates aur risk management strategies ke saath empower karna.</p>
+    </details>
+
+    <details id="contact">
+      <summary>Contact Us</summary>
+      <p>Telegram: <span class="mono">@TradeWithMunaf_Admin</span><br>Email: <span class="mono">support@tradewithmunaf.com</span></p>
+    </details>
+
+    <div class="copyright">© 2026 Trade With Munaf. All rights reserved.</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
