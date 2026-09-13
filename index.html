@@ -46,6 +46,7 @@ src="https://www.facebook.com/tr?id=986119374494580&ev=PageView&noscript=1"
     color:var(--paper);
     font-family:'IBM Plex Sans', sans-serif;
     line-height:1.55;
+    text-align:center;
   }
 
   h1,h2,h3{
@@ -202,15 +203,15 @@ src="https://www.facebook.com/tr?id=986119374494580&ev=PageView&noscript=1"
   }
   .list li{
     display:flex;
-    gap:16px;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
     padding:16px 0;
     border-bottom:1px solid var(--line);
   }
   .list li:last-child{ border-bottom:none; }
   .list .mark{
-    font-family:'IBM Plex Mono', monospace;
-    color:var(--green);
-    flex-shrink:0;
+    display:none;
   }
   .list strong{ color:var(--paper); }
   .list span.desc{ color:rgba(244,241,231,0.65); font-size:15px; }
@@ -236,6 +237,7 @@ src="https://www.facebook.com/tr?id=986119374494580&ev=PageView&noscript=1"
   }
   .footer-links{
     display:flex;
+    justify-content:center;
     gap:22px;
     flex-wrap:wrap;
     margin-bottom:22px;
@@ -249,6 +251,7 @@ src="https://www.facebook.com/tr?id=986119374494580&ev=PageView&noscript=1"
   details{
     border-top:1px solid var(--line);
     padding:16px 0;
+    text-align:center;
   }
   details summary{
     cursor:pointer;
